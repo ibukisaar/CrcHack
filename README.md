@@ -14,7 +14,7 @@ public static class CRC32Hack {
 
     /// <summary>
     /// 求一个非零的x，使得crc32(x) = 0。
-    /// <para>可以让crc32(data ^ x) = crc32(data)。</para>
+    /// 可以让 crc32(data ^ x) = crc32(data)
     /// </summary>
     /// <param name="sourceLength">源数据长度</param>
     /// <param name="configs">重写配置。两两之间不允许重叠</param>
