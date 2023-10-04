@@ -8,8 +8,8 @@ partial class CRC32Hack {
     /// 求一个非零的x，使得crc32(x) = 0。
     /// <para>可以让crc32(data ^ x) = crc32(data)。</para>
     /// </summary>
-    /// <param name="sourceLength"></param>
-    /// <param name="configs"></param>
+    /// <param name="sourceLength">源数据长度</param>
+    /// <param name="configs">重写配置。两两之间不允许重叠</param>
     /// <returns>如果无解，则返回null</returns>
     /// <exception cref="InvalidOperationException"></exception>
     public static byte[]? Zero(int sourceLength, params OverwriteConfig[] configs) => Zero(sourceLength, (IEnumerable<OverwriteConfig>)configs);
@@ -18,8 +18,8 @@ partial class CRC32Hack {
     /// 求一个非零的x，使得crc32(x) = 0。
     /// <para>可以让crc32(data ^ x) = crc32(data)。</para>
     /// </summary>
-    /// <param name="sourceLength"></param>
-    /// <param name="configs"></param>
+    /// <param name="sourceLength">源数据长度</param>
+    /// <param name="configs">重写配置。两两之间不允许重叠</param>
     /// <returns>如果无解，则返回null</returns>
     /// <exception cref="InvalidOperationException"></exception>
     public static byte[]? Zero(int sourceLength, IEnumerable<OverwriteConfig> configs) {

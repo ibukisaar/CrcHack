@@ -62,21 +62,23 @@ static void MD5_CRC32_Collision(uint targetCrc32, bool showMsg = false) {
     // 所以 crc32(outMsg2) = crc32(outMsg1) 且 outMsg2 != outMsg1
 
     if (showMsg) {
+        const int Length = 32;
+
         Console.WriteLine("xorMsg:");
-        for (int i = 0; i < 66; i++) {
-            Console.WriteLine(Convert.ToHexString(xorMsg.AsSpan(i * 64, 64)));
+        for (int i = 0; i < 33 * 128 / Length; i++) {
+            Console.WriteLine(Convert.ToHexString(xorMsg.AsSpan(i * Length, Length)));
         }
         Console.WriteLine();
 
         Console.WriteLine("msg1:");
-        for (int i = 0; i < 66; i++) {
-            Console.WriteLine(Convert.ToHexString(outMsg1.AsSpan(i * 64, 64)));
+        for (int i = 0; i < 33 * 128 / Length; i++) {
+            Console.WriteLine(Convert.ToHexString(outMsg1.AsSpan(i * Length, Length)));
         }
         Console.WriteLine();
 
         Console.WriteLine("msg2:");
-        for (int i = 0; i < 66; i++) {
-            Console.WriteLine(Convert.ToHexString(outMsg2.AsSpan(i * 64, 64)));
+        for (int i = 0; i < 33 * 128 / Length; i++) {
+            Console.WriteLine(Convert.ToHexString(outMsg2.AsSpan(i * Length, Length)));
         }
         Console.WriteLine();
     }
